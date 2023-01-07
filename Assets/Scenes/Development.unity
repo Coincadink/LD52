@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 1917902402}
   - component: {fileID: 1917902401}
   - component: {fileID: 1917902403}
+  - component: {fileID: 1917902404}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -390,3 +391,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
+  Attack: {fileID: 9053186745616899652, guid: c4b15afd18574ca40b1c2fa73c4666be, type: 3}
+--- !u!114 &1917902404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917902399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4125b1155b9524749a27ff979583bb71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 20
