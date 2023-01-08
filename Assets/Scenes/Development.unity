@@ -3460,6 +3460,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2290925903385066356, guid: e87d344a7eaecfa4fa5b8e24c7ffb28b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290925903385066356, guid: e87d344a7eaecfa4fa5b8e24c7ffb28b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.47
+      objectReference: {fileID: 0}
     - target: {fileID: 2290925903385066359, guid: e87d344a7eaecfa4fa5b8e24c7ffb28b, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -4084,9 +4092,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1dd9c63e3171e54eb1062b915585d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeDamage: 0
-  meleeSpeed: 0
-  meleeArcLength: 0
+  meleeDamage: 10
+  meleeLength: 10
+  meleeArcLength: 145
+--- !u!135 &1852180152
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852180146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6748911
+  m_Center: {x: -4.019198, y: 2.6726785, z: 0}
 --- !u!1 &1867211157
 GameObject:
   m_ObjectHideFlags: 0

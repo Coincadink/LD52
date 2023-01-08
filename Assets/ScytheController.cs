@@ -1,16 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScytheController : MonoBehaviour
 {
     public float meleeDamage;
-    public float meleeSpeed;
+    public float meleeLength;
     public float meleeArcLength;
+
+    private AttackState state;
+    private enum AttackState
+    {
+        Melee,
+        Throw,
+        None
+    }
+
+    private int attackFrameCounter;
 
     private void Update()
     {
+        if (state != AttackState.None) return;
+
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 5.23f;
 
@@ -22,8 +31,32 @@ public class ScytheController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 210));
     }
 
+    private void FixedUpdate()
+    {
+        switch (state)
+        {
+            case AttackState.Melee:
+                transform.Rotate(0, 0, meleeArcLength / meleeLength);
+
+                attackFrameCounter++;
+                if (attackFrameCounter > meleeLength)
+                {
+                    state = AttackState.None;
+                }
+                break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("collided");
+    }
+
     public void Swing()
     {
-
+        attackFrameCounter = 0;
+        state = AttackState.Melee;
+        transform.Rotate(0, 0, -meleeArcLength / 2);        
     }
+
 }
