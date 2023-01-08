@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
     private int age;
 
     public int Damage;
-    public GameObject Owner;
+    public GameObject Owner { protected get; set; }
 
     public void Start()
     {
