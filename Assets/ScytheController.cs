@@ -3,8 +3,9 @@ using UnityEngine;
 public class ScytheController : MonoBehaviour
 {
     public int meleeDamage;
-    public float meleeLength;
+    public int meleeLength;
     public float meleeArcLength;
+    public int meleeCooldown;
 
     private AttackState state;
     private enum AttackState
@@ -14,25 +15,20 @@ public class ScytheController : MonoBehaviour
         None
     }
 
+    private int attackCooldownCounter;
     private int attackFrameCounter;
 
     private void Update()
     {
         if (state != AttackState.None) return;
 
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 5.23f;
-
-        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
-        mousePos.x -= objectPos.x;
-        mousePos.y -= objectPos.y;
-
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 210));
+        RotateTowardsMouse();
     }
 
     private void FixedUpdate()
     {
+        if (attackCooldownCounter > 0) attackCooldownCounter--;
+
         switch (state)
         {
             case AttackState.Melee:
@@ -55,9 +51,27 @@ public class ScytheController : MonoBehaviour
             collision.gameObject.GetComponent<Entity>().Damage(meleeDamage);
     }
 
+    private void RotateTowardsMouse()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 5.23f;
+
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x -= objectPos.x;
+        mousePos.y -= objectPos.y;
+
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 210));
+    }
+
     public void Swing()
     {
+        if (attackCooldownCounter > 0) return;
+        attackCooldownCounter = meleeCooldown;
         attackFrameCounter = 0;
+
+        RotateTowardsMouse();
+
         state = AttackState.Melee;
         transform.Rotate(0, 0, -meleeArcLength / 2);        
     }

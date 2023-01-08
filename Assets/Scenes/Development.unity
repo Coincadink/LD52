@@ -4093,8 +4093,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeDamage: 10
-  meleeLength: 10
+  meleeLength: 15
   meleeArcLength: 145
+  meleeCooldown: 10
 --- !u!58 &1852180152
 CircleCollider2D:
   m_ObjectHideFlags: 0
