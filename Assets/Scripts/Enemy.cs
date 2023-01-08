@@ -38,11 +38,10 @@ public class Enemy : Entity
 
     void OnPathComplete(Path p)
     {
-        if(!p.error) {
-            {
-                path = p;
-                currentWaypoint = 0;
-            }
+        if(!p.error) 
+        {
+            path = p;
+            currentWaypoint = 0;
         }
     }
 
@@ -72,11 +71,11 @@ public class Enemy : Entity
             currentWaypoint++;
         }
 
-        if (force.x >= 0.01f)
+        if (rb.velocity.x >= 0.01f && force.x > 0f)
         {
             enemyGFX.localScale = new Vector3(0.2f, 0.2f, 1f);
         } 
-        else if (force.x <= -0.01f)
+        else if (rb.velocity.x <= -0.01f && force.x < 0f)
         {
             enemyGFX.localScale = new Vector3(-0.2f, 0.2f, 1f);
         }
