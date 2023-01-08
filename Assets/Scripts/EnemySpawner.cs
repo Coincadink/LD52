@@ -6,27 +6,21 @@ using System.Runtime.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public int Cooldown;
-    private int spawnTimer;
-
+    public float cooldown = 1.0f;
+    
     public GameObject Enemy;
     public GameObject Player;
 
     private void Start()
     {
-        spawnTimer = Cooldown;
+        InvokeRepeating("Spawn", 0f, cooldown);
     }
 
-    private void FixedUpdate()
+    void Spawn()
     {
-        spawnTimer--;
-        if (spawnTimer == 0)
-        {
-            spawnTimer = Cooldown;
-            GameObject enemy = Instantiate(Enemy, transform.position, transform.rotation);
-            AIDestinationSetter targetScript = enemy.GetComponent<AIDestinationSetter>();
-            targetScript.target = Player.transform;
-            enemy.GetComponent<Enemy>().Target = Player.transform;
-        }
+        GameObject enemy = Instantiate(Enemy, transform.position, transform.rotation);
+
+        Enemy script = enemy.GetComponent<Enemy>();
+        script.target = Player.transform;
     }
 }
