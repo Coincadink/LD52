@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public int MaxHealth;
+    public int maxHealth;
     private int health;
 
     protected void Start()
     {
-        health = MaxHealth;
+        health = maxHealth;
     }
 
     public void Damage(int damage)

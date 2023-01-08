@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e83d102695e64469ddde9942ff9d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   scythe: {fileID: 1852180146}
   speed: 0.15
 --- !u!50 &60694788
@@ -3857,7 +3858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 384038736602347987, guid: c31212e3cb930d248bddc5b341091d05, type: 3}
       propertyPath: cooldown
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 384038736602347988, guid: c31212e3cb930d248bddc5b341091d05, type: 3}
       propertyPath: m_RootOrder

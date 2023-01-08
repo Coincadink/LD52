@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Entity
 {
     public GameObject scythe;
     private ScytheController scytheController;
@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     private bool facingRight = true;
     private Rigidbody2D rb;
 
-    public void Start() 
+    new public void Start() 
     {
+        base.Start();
+
         rb = GetComponent<Rigidbody2D>();
         scytheController = scythe.GetComponent<ScytheController>();
     }

@@ -13,6 +13,8 @@ public class Enemy : Entity
 
     public Transform enemyGFX;
 
+    public GameObject bullet;
+
     Path path;
     int currentWaypoint = 0;
     // bool reachedEndOfPath = false;
@@ -27,7 +29,8 @@ public class Enemy : Entity
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
+        InvokeRepeating(nameof(UpdatePath), 0f, 0.5f);
+        InvokeRepeating(nameof(FireBullet), 1f, 1f);
     }
 
     void UpdatePath()
@@ -45,6 +48,13 @@ public class Enemy : Entity
         }
     }
 
+    void FireBullet()
+    {
+        var newBullet = Instantiate(bullet, transform.position, transform.rotation).GetComponent<Bullet>();
+        newBullet.Owner = transform;
+        newBullet.Direction = target.position - transform.position;
+    }
+
     void FixedUpdate()
     {
         if (path == null)
@@ -60,7 +70,7 @@ public class Enemy : Entity
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = speed * Time.deltaTime * direction;
 
         rb.AddForce(force);
 

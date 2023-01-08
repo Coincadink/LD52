@@ -47,8 +47,12 @@ public class ScytheController : MonoBehaviour
     {
         if (collision.transform == transform.parent.transform) return;
 
-        if (state == AttackState.Melee)
-            collision.gameObject.GetComponent<Entity>().Damage(meleeDamage);
+        if (state == AttackState.Melee && 
+            collision.gameObject.TryGetComponent<Entity>(out var entityHandler))
+        {
+            entityHandler.Damage(meleeDamage);
+        }
+            
     }
 
     private void RotateTowardsMouse()

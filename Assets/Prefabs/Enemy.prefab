@@ -113,11 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b1f53ffed469a42b2866e050c8d6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 200
+  maxHealth: 10
   target: {fileID: 0}
   speed: 200
   nextWaypointDistance: 3
   enemyGFX: {fileID: 2933156292206512876}
+  bullet: {fileID: 6359126402780986330, guid: 0b8588a1c8c7b0b44925c2c586fb4054, type: 3}
 --- !u!1 &2933156292206512877
 GameObject:
   m_ObjectHideFlags: 0
