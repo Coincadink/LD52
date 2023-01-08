@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Collision Map
   m_SortingLayers:
   - name: Default
     uniqueID: 0

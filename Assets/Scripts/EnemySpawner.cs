@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     private int spawnTimer;
 
     public GameObject Enemy;
+    public GameObject Player;
 
     private void Start()
     {
@@ -20,7 +22,9 @@ public class EnemySpawner : MonoBehaviour
         if (spawnTimer == 0)
         {
             spawnTimer = Cooldown;
-            Instantiate(Enemy, transform.position, transform.rotation);
+            GameObject enemy = Instantiate(Enemy, transform.position, transform.rotation);
+            AIDestinationSetter targetScript = enemy.GetComponent<AIDestinationSetter>();
+            targetScript.target = Player.transform;
         }
     }
 }

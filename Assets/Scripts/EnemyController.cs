@@ -15,14 +15,6 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 direction = new Vector2
-        {
-            x = Random.value - 0.5f,
-            y = Random.value - 0.5f
-        }.normalized;
-
-        Debug.Log(direction);
-
-        m_rigidbody.position += direction * Speed;
+        
     }
 }
