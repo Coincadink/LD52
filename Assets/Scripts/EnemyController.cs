@@ -17,10 +17,12 @@ public class EnemyController : MonoBehaviour
     {
         Vector2 direction = new Vector2
         {
-            x = Random.value,
-            y = Random.value
+            x = Random.value - 0.5f,
+            y = Random.value - 0.5f
         }.normalized;
 
-        m_rigidbody.MovePosition(direction * Speed);
+        Debug.Log(direction);
+
+        m_rigidbody.position += direction * Speed;
     }
 }
