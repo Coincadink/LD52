@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -9008272223538457893}
   - component: {fileID: 6076155910724389118}
   - component: {fileID: 609077053236203040}
+  - component: {fileID: -1824362403669378178}
   m_Layer: 0
   m_Name: Bad grimmy
   m_TagString: Untagged
@@ -137,3 +138,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1824362403669378178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290925904334143223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11c5ee972e11ae4baae3316b56c4500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 2.5
