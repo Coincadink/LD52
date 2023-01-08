@@ -4,9 +4,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0.15f;
-    private bool facingRight = true;
-
     public GameObject Attack;
+    public GameObject Scythe;
+
+    private bool facingRight = true;
 
     public void FixedUpdate()
     {
@@ -24,16 +25,27 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             var newAtt = Instantiate(Attack, transform.position, transform.rotation);
             newAtt.GetComponent<Attack>().Owner = gameObject;
         }
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 5.23f;
+ 
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x -= objectPos.x;
+        mousePos.y -= objectPos.y;
+ 
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        Scythe.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 210));
     }
 
     private void Flip()
 	{
 		facingRight = !facingRight;
 		transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        Scythe.transform.localScale = new Vector3(-Scythe.transform.localScale.x, Scythe.transform.localScale.y, Scythe.transform.localScale.z); // TODO: Don't do this.
 	}
 }
