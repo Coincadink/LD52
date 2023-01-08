@@ -7,13 +7,14 @@ public class Entity : MonoBehaviour
     public int MaxHealth;
     private int health;
 
-    void Start()
+    protected void Start()
     {
         health = MaxHealth;
     }
 
     public void Damage(int damage)
     {
+        Debug.Log("ouch");
         health -= damage;
         if (health <= 0)
         {

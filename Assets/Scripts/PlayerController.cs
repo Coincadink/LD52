@@ -43,5 +43,6 @@ public class PlayerController : MonoBehaviour
 	{
 		facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+        scythe.transform.Rotate(0, 180, 0);
 	}
 }

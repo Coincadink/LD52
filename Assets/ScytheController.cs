@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScytheController : MonoBehaviour
 {
-    public float meleeDamage;
+    public int meleeDamage;
     public float meleeLength;
     public float meleeArcLength;
 
@@ -49,7 +49,10 @@ public class ScytheController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collided");
+        if (collision.transform == transform.parent.transform) return;
+
+        if (state == AttackState.Melee)
+            collision.gameObject.GetComponent<Entity>().Damage(meleeDamage);
     }
 
     public void Swing()
