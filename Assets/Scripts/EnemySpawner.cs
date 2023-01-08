@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.Runtime.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(Enemy, transform.position, transform.rotation);
             AIDestinationSetter targetScript = enemy.GetComponent<AIDestinationSetter>();
             targetScript.target = Player.transform;
+            enemy.GetComponent<Enemy>().Target = Player.transform;
         }
     }
 }
