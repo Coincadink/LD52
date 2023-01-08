@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
-  Attack: {fileID: 577792841922032698, guid: c4b15afd18574ca40b1c2fa73c4666be, type: 3}
+  Attack: {fileID: 8568040544759465363, guid: ecd485904cb871b44a98d6de2f9976f3, type: 3}
   Scythe: {fileID: 1852180146}
 --- !u!4 &60694786 stripped
 Transform:
@@ -514,6 +514,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2290925904334143222, guid: e87d344a7eaecfa4fa5b8e24c7ffb28b, type: 3}
       propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290925904334143222, guid: e87d344a7eaecfa4fa5b8e24c7ffb28b, type: 3}
+      propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2290925904334143223, guid: e87d344a7eaecfa4fa5b8e24c7ffb28b, type: 3}
