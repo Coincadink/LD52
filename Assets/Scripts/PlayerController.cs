@@ -49,6 +49,5 @@ public class PlayerController : Entity
         {
             transform.GetChild(i).Rotate(0, 180, 0);
         }
-        
 	}
 }

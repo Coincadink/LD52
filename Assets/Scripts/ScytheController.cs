@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class ScytheController : MonoBehaviour
 {
@@ -47,10 +49,17 @@ public class ScytheController : MonoBehaviour
     {
         if (collision.transform == transform.parent.transform) return;
 
-        if (state == AttackState.Melee && 
-            collision.gameObject.TryGetComponent<Entity>(out var entityHandler))
+        if (state == AttackState.Melee)
         {
-            entityHandler.Damage(meleeDamage);
+            if (collision.gameObject.TryGetComponent<Entity>(out var entityHandler))
+                entityHandler.Damage(meleeDamage);
+            else if (collision.gameObject.TryGetComponent<Bullet>(out var bullet))
+            {
+                bullet.Owner = transform;
+                //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Debug.Log((Vector2)(mousePos - transform.position));
+                bullet.Direction = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.parent.transform.position;
+            }
         }
             
     }

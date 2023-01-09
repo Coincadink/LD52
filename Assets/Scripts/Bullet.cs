@@ -22,7 +22,8 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent<Entity>(out var entityHandler))
                 entityHandler.Damage(damage);
-            Destroy(gameObject);
+            if (!collision.gameObject.TryGetComponent<ScytheController>(out var _))
+                Destroy(gameObject);
         }
     }
 }
