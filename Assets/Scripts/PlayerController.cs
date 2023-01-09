@@ -45,6 +45,10 @@ public class PlayerController : Entity
 	{
 		facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
-        scythe.transform.Rotate(0, 180, 0);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).Rotate(0, 180, 0);
+        }
+        
 	}
 }
