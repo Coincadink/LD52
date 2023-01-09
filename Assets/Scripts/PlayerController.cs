@@ -11,11 +11,7 @@ public class PlayerController : Entity
     private bool facingRight = true;
     private Rigidbody2D rb;
 
-<<<<<<< Updated upstream
-    new public void Start() 
-=======
     new void Start() 
->>>>>>> Stashed changes
     {
         base.Start();
 

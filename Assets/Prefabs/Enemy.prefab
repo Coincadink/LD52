@@ -114,12 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b1f53ffed469a42b2866e050c8d6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  maxHealth: 10
-=======
   MaxHealth: 200
   slider: {fileID: 9066118589797569498}
->>>>>>> Stashed changes
   target: {fileID: 0}
   speed: 200
   nextWaypointDistance: 3
